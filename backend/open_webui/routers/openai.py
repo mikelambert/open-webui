@@ -38,6 +38,7 @@ from open_webui.env import (
     ENABLE_FORWARD_USER_INFO_HEADERS,
     FORWARD_SESSION_INFO_HEADER_CHAT_ID,
     BYPASS_MODEL_ACCESS_CONTROL,
+    VERSION,
 )
 from open_webui.models.users import UserModel
 
@@ -130,6 +131,7 @@ async def get_headers_and_cookies(
     cookies = {}
     headers = {
         "Content-Type": "application/json",
+        "User-Agent": f"open-webui/{VERSION}",
         **(
             {
                 "HTTP-Referer": "https://openwebui.com/",
