@@ -126,9 +126,12 @@ async def get_headers_and_cookies(
     metadata: Optional[dict] = None,
     user: UserModel = None,
 ):
+    from open_webui.env import VERSION
+
     cookies = {}
     headers = {
         "Content-Type": "application/json",
+        "User-Agent": f"open-webui/{VERSION}",
         **(
             {
                 "HTTP-Referer": "https://openwebui.com/",
